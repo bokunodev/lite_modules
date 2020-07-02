@@ -10,7 +10,7 @@ local function eof_newline(doc)
 		end
 		neof = i
 	end
-		doc:remove(neof,math.huge,leof,math.huge)
+	doc:remove(neof,math.huge,leof,math.huge)
 	if doc.lines[neof] ~= "\n" then
 		doc:insert(neof,math.huge,"\n")
 	end
