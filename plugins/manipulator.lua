@@ -1,5 +1,6 @@
 local core = require "core"
 local command = require "core.command"
+local user = require "user"
 
 local function base64enc(data)
   local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
@@ -40,7 +41,7 @@ local function manipulate(doc,opt,rex)
     core.error("Cannot manupilate empty selection!.")
     return
   end
-	local sline, scol, eline, ecol = doc:get_selection()
+  local sline, scol, eline, ecol = doc:get_selection()
   local text = doc:get_text(sline, scol, eline, ecol)
   text = string.gsub(text,rex,opt)
   local tline, tcol = sline, scol
@@ -52,20 +53,23 @@ local function manipulate(doc,opt,rex)
 end
 
 command.add("core.docview", {
-	["manipulator:upper"] = function()
-		manipulate(core.active_view.doc,string.upper,".*")
-	end,
-	["manipulator:lower"] = function()
-		manipulate(core.active_view.doc,string.lower,".*")
-	end,
-	["manipulator:capitalize"] = function()
-		manipulate(core.active_view.doc,capital,"(%a)([%w_']*)")
-	end,
-	["manipulator:base64enc"] = function()
-		manipulate(core.active_view.doc,base64enc,".*")
-	end,
-	["manipulator:base64dec"] = function()
-		manipulate(core.active_view.doc,base64dec,".*")
-	end,
+  ["manipulator:upper"] = function()
+    manipulate(core.active_view.doc,string.upper,".*")
+  end,
+  ["manipulator:lower"] = function()
+    manipulate(core.active_view.doc,string.lower,".*")
+  end,
+  ["manipulator:tab2spaces"] = function()
+    manipulate(core.active_view.doc,string.rep(" ",user.config.indent_size),"\t")
+  end,
+  ["manipulator:capitalize"] = function()
+    manipulate(core.active_view.doc,capital,"(%a)([%w_']*)")
+  end,
+  ["manipulator:base64enc"] = function()
+    manipulate(core.active_view.doc,base64enc,".*")
+  end,
+  ["manipulator:base64dec"] = function()
+    manipulate(core.active_view.doc,base64dec,".*")
+  end,
 })
 
