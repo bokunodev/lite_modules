@@ -20,7 +20,7 @@ user.config.ignore_files = "!"
 user.config.max_undos = 100
 user.config.highlight_current_line = true
 user.config.line_height = 1.2
-user.config.indent_size = 2
+user.config.indent_size = 3
 user.config.tab_type = "soft"
 user.config.line_limit = 100
 

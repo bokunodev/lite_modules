@@ -32,7 +32,7 @@ local function base64dec(data)
   end))
 end
 
-local function capital(first,rest)
+local function capitalize(first,rest)
   return first:upper()..rest:lower()
 end
 
@@ -62,8 +62,11 @@ command.add("core.docview", {
   ["manipulator:tab2spaces"] = function()
     manipulate(core.active_view.doc,string.rep(" ",user.config.indent_size),"\t")
   end,
+  ["manipulator:clean"] = function()
+    manipulate(core.active_view.doc,"\n\n","[\r\n][\r\n]+")
+  end,
   ["manipulator:capitalize"] = function()
-    manipulate(core.active_view.doc,capital,"(%a)([%w_']*)")
+    manipulate(core.active_view.doc,capitalize,"(%a)([%w_']*)")
   end,
   ["manipulator:base64enc"] = function()
     manipulate(core.active_view.doc,base64enc,".*")
