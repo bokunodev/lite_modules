@@ -1,5 +1,4 @@
 local core = require "core"
-local docview = require "core.docview"
 local command = require "core.command"
 local keymap = require "core.keymap"
 
