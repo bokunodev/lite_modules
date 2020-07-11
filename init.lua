@@ -25,7 +25,6 @@ user.config.tab_type = "soft"
 user.config.line_limit = 100
 
 user.go_fmt_cmd = "goimports"
-user.path_sep = "/"
 
 return user
 
