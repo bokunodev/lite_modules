@@ -2,7 +2,6 @@ local translate = require "core.doc.translate"
 local command = require "core.command"
 local keymap = require "core.keymap"
 local core = require "core"
-local user = require "user"
 
 local function close_tag(doc,patt,inline)
     local pos = {doc:get_selection(true)}
