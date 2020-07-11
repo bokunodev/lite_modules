@@ -28,7 +28,7 @@ command.add("core.docview", {
 })
 
 keymap.add {
-  ["altgr+shift+,"]    = "xml:closetag",
-  ["altgr+shift+."]    = "xml:closetaginline",
+  ["alt+shift+,"]    = "xml:closetag",
+  ["alt+shift+."]    = "xml:closetaginline",
 }
 
