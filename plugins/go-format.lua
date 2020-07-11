@@ -20,7 +20,7 @@ local function do_format(cmd,doc)
     return
   end
   local line,col,msg = out:match(':(%d-):(%d-):([^\n]+)')
-  doc:set_selection(line,1,line,math.huge)
+  doc:set_selection(line,col)
   core.error(string.format(error_msg,line,col,msg))
 end
 

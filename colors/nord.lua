@@ -49,3 +49,4 @@ style.syntax["literal"] = { common.color "#bf616a" }
 style.syntax["string"] = { common.color "#ebcb8b" }
 style.syntax["operator"] = { common.color "#a3be8c" }
 style.syntax["function"] = { common.color "#d08770" }
+
