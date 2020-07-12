@@ -22,7 +22,7 @@ command.add("core.docview", {
         close_tag(core.active_view.doc,"<%s></%s>")
     end,
     ["xml:closetaginline"] = function()
-        close_tag_inline(core.active_view.doc,"<%s/>",true)
+        close_tag(core.active_view.doc,"<%s/>",true)
     end,
 })
 
