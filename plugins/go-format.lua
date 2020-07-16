@@ -12,8 +12,10 @@ local function do_format(cmd,doc)
   local p = io.popen(cmd.." -w "..file.." 2>&1")
   local out = p:read('*a')
   local status = {p:close()}
+  local pl,pc,_,_ = doc:get_selection()
   if status[3] == 0 then
     doc:load(file)
+    doc:set_selection(pl,pc)
     return
   elseif status[3] == 127 then
     core.error("Command '"..cmd.."' not found in the system")
