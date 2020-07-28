@@ -10,10 +10,12 @@ local function eof_newline(doc)
     end
     neof = i
   end
-  doc:remove(neof,math.huge,leof,math.huge)
-  if doc.lines[neof] ~= "\n" then
-    doc:insert(neof,math.huge,"\n")
+  local eol,_ = string.find(doc.lines[neof],"\n")
+  if eol then
+    doc:remove(neof,eol,math.huge,math.huge)
+    return
   end
+  doc:insert(neof,math.huge,"\n")
 end
 
 command.add("core.docview", {
