@@ -6,8 +6,8 @@ local user = require("user")
 
 local error_msg = "ERROR line:%s co:%s %s"
 
-local autopep8_flag = user.autopep8_flag or "-i -j 2 -p 2 --experimental"
-local pycodestyle_flag = user.pycodestyle_flag or ""
+local autopep8_flag = user.autopep8_flag or "-i -j 4 -a --experimental --ignore E501"
+local pycodestyle_flag = user.pycodestyle_flag or "--ignore E501"
 
 local fmt_cmd = "%s %s %s 2>&1"
 
