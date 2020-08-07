@@ -9,7 +9,7 @@ local fmt_cmd = user.go_fmt_cmd or "gofmt"
 local function do_format(cmd,doc)
     local file = doc.get_name()
     if file == "unsaved" then
-        core.error("Can't format an unsaved document!.")
+        core.error("Can't format unsaved document!.")
         return
     end
     if doc.is_dirty() then doc.save() end
@@ -22,7 +22,7 @@ local function do_format(cmd,doc)
         doc:set_selection(pl,pc)
         return
     elseif status[3] == 127 then
-        core.error("Command '"..cmd.."' not found in the system")
+        core.error("Can't find "..cmd)
         return
     end
     local line,col,msg = out:match(':(%d-):(%d-):([^\n]+)')
